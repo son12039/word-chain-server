@@ -1,14 +1,14 @@
-# Use an official Java runtime as a parent image
-FROM openjdk:17-jdk
+# Alpine 기반 OpenJDK 이미지를 사용하여 Maven 설치
+FROM openjdk:17-jdk-alpine
+
+# Update the package list and install Maven using apk (Alpine package manager)
+RUN apk update && apk add maven
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container
+# Copy the current directory contents into the container at /app
 COPY . /app
-
-# Install dependencies (optional, for Maven)
-RUN apt-get update && apt-get install -y maven
 
 # Build the application
 RUN mvn clean install
