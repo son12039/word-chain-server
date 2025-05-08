@@ -17,4 +17,4 @@ RUN mvn clean install
 EXPOSE 8080
 
 # Run the application
-CMD ["java", "-jar", "target/your-application.jar"]
+CMD ["java", "-jar", "target/wordchain-0.0.1-SNAPSHOT.jar"]
