@@ -27,7 +27,7 @@ jobs:
 
       # 4. Railway에 배포
       - name: Deploy to Railway
-        uses: railwayapp/railway-deploy-action@v1 # 최신 버전으로 변경
+        uses: railwayapp/railway-deploy-action@v3 # 최신 버전으로 변경
         with:
           railwayToken: ${{ secrets.RAILWAY_TOKEN }} # GitHub Secrets에서 RAILWAY_TOKEN 가져오기
           serviceId: 8cd539e3-1619-48e1-a375-efbc304e6a50 # Railway 프로젝트에서 서비스 ID를 입력
