@@ -25,5 +25,5 @@ jobs:
       - name: Deploy to Railway
         uses: bervProject/railway-deploy@main
         with:
-          railway_token: ${{ secrets.RAILWAY_TOKEN }}
-          service: 8cd539e3-1619-48e1-a375-efbc304e6a50
+          service: "8cd539e3-1619-48e1-a375-efbc304e6a50" # Railway 서비스 ID
+          entryPoint: "java -jar target/your-application.jar" # 애플리케이션 JAR 파일 실행 명령어
