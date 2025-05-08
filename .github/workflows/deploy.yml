@@ -3,31 +3,27 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - main # main 브랜치로 푸시될 때마다 트리거
+      - main
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # Ubuntu 환경에서 실행
+    runs-on: ubuntu-latest
 
     steps:
-      # 1. 코드 체크아웃
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Java 설정 (예: OpenJDK 17)
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
           java-version: "17"
           distribution: "temurin"
 
-      # 3. Maven 빌드 실행
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      # 4. Railway에 배포
       - name: Deploy to Railway
-        uses: railwayapp/railway-deploy-action@v3 # 최신 버전으로 변경
+        uses: bervProject/railway-deploy@main
         with:
-          railwayToken: ${{ secrets.RAILWAY_TOKEN }} # GitHub Secrets에서 RAILWAY_TOKEN 가져오기
-          serviceId: 8cd539e3-1619-48e1-a375-efbc304e6a50 # Railway 프로젝트에서 서비스 ID를 입력
+          railwayToken: ${{ 619d8b74-78ce-4635-b7ca-b1de307c4ab3 }}
+          serviceId: 8cd539e3-1619-48e1-a375-efbc304e6a50
