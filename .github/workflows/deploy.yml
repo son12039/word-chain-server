@@ -30,4 +30,4 @@ jobs:
         uses: bervProject/railway-deploy@main
         with:
           service: "8cd539e3-1619-48e1-a375-efbc304e6a50" # Railway 서비스 ID
-          entryPoint: "java -jar target/your-application.jar" # 애플리케이션 JAR 파일 실행 명령어
+          entryPoint: "java -jar target/word-chain-server.jar" # 실제 JAR 파일 경로와 이름에 맞게 수정
