@@ -25,5 +25,5 @@ jobs:
       - name: Deploy to Railway
         uses: bervProject/railway-deploy@main
         with:
-          railwayToken: ${{ secrets.RAILWAY_TOKEN }}
-          serviceId: 8cd539e3-1619-48e1-a375-efbc304e6a50
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
+          service: 8cd539e3-1619-48e1-a375-efbc304e6a50
