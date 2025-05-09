@@ -54,3 +54,8 @@ jobs:
     steps:
       - name: 스텝1.
         run: echo "스텝1"
+
+      - name: 자체변수 사용하기
+        run: |
+          echo $Github_SHA
+          echo $Github.REPOSITORY
