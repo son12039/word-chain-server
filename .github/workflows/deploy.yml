@@ -1,46 +1,27 @@
-# name: Deploy to Railway
+# name: Github Actions 공부
 
-# # Event : 실행되는 시점 설정 main에 push 될 때, Wockflow실행
 # on:
 #   push:
 #     branches:
 #       - main
 
-# # 하나의 Wockflow는 1개 이상의 Job존재 병렬수행
 # jobs:
-#   build-and-deploy: #얜그냥이름
-#     runs-on: ubuntu-latest # Ubuntu 환경에서 최신버전실행
+#   only-eng:
+#     runs-on: ubuntu-latest
 
-#     steps: # 작업수행 최소단위, 여러 steps으로 Job구성
-#       # 1. 코드 체크아웃
-#       - name: Checkout code
-#         uses: actions/checkout@v3
+#     steps:
+#       - name: 스텝1.
+#         run: echo "스텝1"
 
-#       # 2. Java 설정 (예: OpenJDK 17)
-#       - name: Set up Java
-#         uses: actions/setup-java@v3
-#         with:
-#           java-version: "17"
-#           distribution: "temurin"
+#       - name: 자체변수 사용하기
+#         run: |
+#           echo $GITHUB_SHA
+#           echo $GITHUB_REPOSITORY
 
-#       # 3. Maven 빌드 실행
-#       - name: Build with Maven
-#         run: mvn clean package -DskipTests
-
-#       # 4. 빌드 후 파일 목록 확인 (디버깅용)
-#       - name: List files in target directory
-#         run: ls -al target/
-
-#       # 5. Railway에 배포
-#       - name: Deploy to Railway
-#         uses: bervProject/railway-deploy@main
-#         with:
-#           service: "8cd539e3-1619-48e1-a375-efbc304e6a50"
-#           entryPoint: "java -jar /github/workspace/target/wordchain-0.0.1-SNAPSHOT.jar"
-
-# railway가 알아서 파이프라인구성해줌 괜히 했네..
-
-name: Github Actions 공부
+#       - name: 비밀값
+#         run: |
+#           echo ${{ secrets.MY_NAME }}
+name: Spring REST API Test
 
 on:
   push:
@@ -48,18 +29,27 @@ on:
       - main
 
 jobs:
-  only-eng:
+  test-api:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 스텝1.
-        run: echo "스텝1"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: 자체변수 사용하기
-        run: |
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
 
-      - name: 비밀값
+      - name: Build Spring Boot app
+        run: ./mvnw clean package -DskipTests
+
+      - name: Run Spring Boot app in background
         run: |
-          echo ${{ secrets.MY_NAME }}
+          nohup java -jar target/*.jar > log.txt 2>&1 &
+          sleep 10
+
+      - name: Send request to /test endpoint
+        run: |
+          curl -f https://word-chain-server-production.up.railway.app/test
