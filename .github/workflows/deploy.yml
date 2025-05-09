@@ -58,4 +58,4 @@ jobs:
       - name: 자체변수 사용하기
         run: |
           echo $GITHUB_SHA
-          echo $GITHUB.REPOSITORY
+          echo $GITHUB_REPOSITORY
