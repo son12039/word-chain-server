@@ -62,4 +62,4 @@ jobs:
 
       - name: 비밀값
         run: |
-          echo: ${{ secrets.MY_NAME }}
+          echo ${{ secrets.MY_NAME }}
