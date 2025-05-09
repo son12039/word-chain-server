@@ -52,5 +52,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      name: 스텝1
-      run: echo "스텝1"
+      - name: 스텝1
+        run: echo "스텝1"
