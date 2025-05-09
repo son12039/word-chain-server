@@ -48,9 +48,9 @@ on:
       - main
 
 jobs:
-  한국어도 되나:
+  only-eng:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 스텝1
+      - name: 스텝1.
         run: echo "스텝1"
