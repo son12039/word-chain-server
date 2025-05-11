@@ -13,22 +13,10 @@ server.listen(port, () => {
   console.log("시작");
 });
 const connection = createDBConnection();
-const fetchData = () => {
-  const connection = createDBConnection();
-  const query = "SELECT * FROM member";
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error("쿼리 실행 오류:", err);
-      return;
-    }
-    // 결과 출력
-    console.log("쿼리 결과:", results);
-  });
-};
-setTimeout(fetchData, 5000);
 
 // 닉네임 미 기입시 로그인
 app.post("/member/user", (req, res) => {
+  console.log("요청옴");
   let { id, password, nickname } = req.body;
   if (nickname == "") {
     const loginQuery = `SELECT * FROM member WHERE id=? AND password=?`;
