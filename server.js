@@ -4,7 +4,7 @@ import http from "http";
 import { createSocket } from "./socket.js";
 import { createDBConnection } from "./mysql.js";
 const app = express();
-const port = process.env.MYSQLPORT;
+const port = parseInt(process.env.MYSQLPORT);
 app.use(cors());
 app.use(express.json());
 const server = http.createServer(app);
