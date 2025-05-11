@@ -9,7 +9,7 @@ export const createSocket = (server) => {
   const io = new Server(server, {
     cors: {
       cors: {
-        origin: "http://localhost:3001",
+        origin: "https://word-chain-server-production.up.railway.app",
         methods: ["GET", "POST"],
       },
     },
