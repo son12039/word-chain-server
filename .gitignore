@@ -1,33 +1,21 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# 환경 변수 파일
+.env
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# OS 생성 파일
+.DS_Store
+Thumbs.db
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# 로그 파일
+logs/
+*.log
+
+# 빌드 파일
+dist/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
