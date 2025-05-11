@@ -16,7 +16,7 @@ app.use(express.json());
 const server = http.createServer(app);
 createSocket(server);
 server.listen(port, () => {
-  console.log("시작");
+  console.log("시작", port);
 });
 const connection = createDBConnection();
 
