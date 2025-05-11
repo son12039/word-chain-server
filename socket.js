@@ -99,6 +99,7 @@ export const createSocket = (server) => {
         if (wordInfo.wrong) {
           gameState = false;
           wordList = [];
+          previousWord = "";
         }
       } else {
         socket.emit("wordList", wordList);
