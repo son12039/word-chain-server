@@ -4,10 +4,10 @@ import http from "http";
 import { createSocket } from "./socket.js";
 import { createDBConnection } from "./mysql.js";
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.RAILWAY_PUBLIC_DOMAIN || "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
   })
