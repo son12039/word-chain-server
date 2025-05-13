@@ -1,6 +1,6 @@
-module.exports = {
+export default {
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest", // .js와 .jsx 파일을 Babel로 변환
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Babel을 사용하여 .js, .jsx, .ts, .tsx 파일 변환
   },
-  testEnvironment: "node", // 테스트 환경 설정 (필요 시)
+  testEnvironment: "node", // 테스트 환경을 Node.js로 설정
 };
