@@ -1,6 +1,12 @@
 module.exports = {
   presets: [
-    "@babel/preset-env", // 최신 JavaScript 문법을 지원
-    "@babel/preset-react", // React 문법을 지원 (필요 시)
+    [
+      "@babel/preset-env",
+      {
+        targets: "node 16", // 예시: Node.js 16버전을 대상으로 설정
+        modules: "auto", // ES 모듈을 CommonJS로 변환
+      },
+    ],
+    "@babel/preset-react", // React를 사용할 경우 추가
   ],
 };
